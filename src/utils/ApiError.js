@@ -12,8 +12,8 @@ this.message=message
 this.success=false;
 this.error=this.errors
 
-if(statck){
-    this.stack=statck
+if(stack){
+    this.stack=stack
 }
 else{
     Error.captureStackTrace(this,this.constructor)

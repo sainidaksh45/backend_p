@@ -1,8 +1,10 @@
  //require ('dotenv').config({path:'./env'})
+ import express from "express";
  import dotenv from "dotenv"
 //  import mongoose from "mongoose";
 //  import { DB_NAME } from "./constants";
 import connectDB from "./db/index.js";
+import userRoutes from "./routes/user.routes.js"
  
  dotenv.config({
     path:'./env'
@@ -10,9 +12,10 @@ import connectDB from "./db/index.js";
 
 
 
+const app=express();
 
-
-
+app.use(express.json());
+app.use("/api/v1/users", userRoutes);
  connectDB()
  .then(()=>{
     app.listen(process.env.PORT || 8000,()=>{
